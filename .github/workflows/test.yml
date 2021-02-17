@@ -47,7 +47,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Install System Packages
-        run: apt-get update && apt-get install -y sudo lsof build-essential libxml2 libxml2-dev libxslt1.1 libxslt1-dev libpq5 libpq-dev git pkg-config
+        run: apt-get update && apt-get install -y sudo build-essential libxml2 libxml2-dev libxslt1.1 libxslt1-dev libpq5 libpq-dev git pkg-config
 
       - name: Install Dependencies
         run: gem install bundler && bundle install
@@ -55,7 +55,7 @@ jobs:
       - name: start server
         run: |
           bin/rails server &
-          sudo lsof -i -P -n | grep LISTEN
+          ps aux
                          
       - name: curl
         uses: wei/curl@v1
