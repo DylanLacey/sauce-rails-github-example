@@ -55,7 +55,7 @@ jobs:
       - name: start server
         run: |
           bin/rails server &
-          curl http://localhost:3000
+          sudo lsof -i -P -n | grep LISTEN
                          
       - name: curl
         uses: wei/curl@v1
